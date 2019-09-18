@@ -22,7 +22,7 @@ is required when using them.
 
 Have docker ready and run `make` to build all images. They are tagged as
 `garfieldius/typo3-ci:phpX-nodeY` by default. For local purposes, it may be
-easier to remove the username from the tag and/or change the image name tag.
+easier to remove the username from the tag or change the image name tag.
 This can be done using the variable `IMAGE_TAG`.
 
 Example: the following command will build and push the images into a local

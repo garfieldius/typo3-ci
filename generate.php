@@ -50,6 +50,11 @@ push:
 .PHONY: clean
 clean:
 %s	docker image prune -f
+	@docker push $(IMAGE_TAG)
+
+.PHONY: generate
+generate:
+	php generate.php
 ';
 
 

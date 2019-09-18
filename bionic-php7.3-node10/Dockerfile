@@ -39,7 +39,7 @@ RUN set -e -u -x \
     \
     && apt update -y \
     && apt full-upgrade -y \
-    && apt install -y gcc g++ make openssl \
+    && apt install -y gcc g++ make openssl jq wget \
            rsync xz-utils openssh-client git zip unzip mysql-client default-jre-headless patch \
            xvfb gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 \
            libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 \
