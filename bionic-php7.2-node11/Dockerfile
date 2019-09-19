@@ -39,7 +39,7 @@ RUN set -e -u -x \
     \
     && apt update -y \
     && apt full-upgrade -y \
-    && apt install -y gcc g++ make openssl jq wget \
+    && apt install -y gcc g++ make openssl jq wget less \
            rsync xz-utils openssh-client git zip unzip mysql-client default-jre-headless patch \
            xvfb gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 \
            libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 \
@@ -50,25 +50,25 @@ RUN set -e -u -x \
     && apt-cmd purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
         software-properties-common
 
-ARG PHP_VERSION=7.2
+ENV PHP_VERSION=7.2
 
 RUN set -e -u -x \
     && apt-cmd install -y \
         php${PHP_VERSION}-cli php${PHP_VERSION}-curl php${PHP_VERSION}-mbstring php${PHP_VERSION}-zip php${PHP_VERSION}-xml php${PHP_VERSION}-soap \
         php${PHP_VERSION}-json php${PHP_VERSION}-bz2 php${PHP_VERSION}-intl php${PHP_VERSION}-gd php${PHP_VERSION}-mysql php${PHP_VERSION}-sqlite3
 
-ARG NODE_VERSION=11.15.0
+ENV NODE_VERSION=11.15.0
 
 RUN set -e -u -x \
     && curl -sSL https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz | tar -x -J -C /usr/local --strip-components=1
 
-ARG YARN_VERSION=1.17.3
+ENV YARN_VERSION=1.17.3
 
 RUN set -e -u -x \
     && curl -sSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
     && chmod +x /usr/local/bin/yarn
 
-ARG COMPOSER_VERSION=1.9.0
+ENV COMPOSER_VERSION=1.9.0
 
 RUN set -e -u -x \
     && curl -sSLo composer-setup.php https://getcomposer.org/installer \
