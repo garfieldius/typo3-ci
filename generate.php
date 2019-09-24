@@ -17,6 +17,7 @@ $images = [
         'node' => ['12.10.0', '11.15.0', '10.16.3'],
         'yarn' => '1.17.3',
         'composer' => '1.9.0',
+        'deployer' => '6.4.6',
     ],
 ];
 
@@ -85,6 +86,7 @@ foreach ($images as $image => $versions) {
                 'NODE_VERSION' => $node,
                 'YARN_VERSION' => $versions['yarn'],
                 'COMPOSER_VERSION' => $versions['composer'],
+                'DEPLOYER_VERSION' => $versions['deployer'],
             ];
 
             foreach ($markers as $name => $value) {

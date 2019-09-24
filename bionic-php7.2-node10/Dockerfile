@@ -76,6 +76,12 @@ RUN set -e -u -x \
     && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm composer-setup.php
 
+ENV DEPLOYER_VERSION=6.4.6
+
+RUN set -e -u -x \
+    && curl -sSLo /usr/local/bin/dep https://deployer.org/releases/v${DEPLOYER_VERSION}/deployer.phar \
+    && chmod +x /usr/local/bin/dep
+
 USER app
 
 RUN set -e -u -x \
