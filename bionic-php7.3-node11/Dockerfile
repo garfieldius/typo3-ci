@@ -62,7 +62,7 @@ ENV NODE_VERSION=11.15.0
 RUN set -e -u -x \
     && curl -sSL https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz | tar -x -J -C /usr/local --strip-components=1
 
-ENV YARN_VERSION=1.17.3
+ENV YARN_VERSION=1.9.0
 
 RUN set -e -u -x \
     && curl -sSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
