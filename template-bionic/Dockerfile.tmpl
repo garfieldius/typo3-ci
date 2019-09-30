@@ -82,6 +82,12 @@ RUN set -e -u -x \
     && curl -sSLo /usr/local/bin/dep https://deployer.org/releases/v${DEPLOYER_VERSION}/deployer.phar \
     && chmod +x /usr/local/bin/dep
 
+ENV TYPO3SCAN_VERSION=##TYPO3SCAN_VERSION##
+
+RUN set -e -u -x \
+    && curl -sSLo /usr/local/bin/typo3scan https://github.com/Tuurlijk/typo3scan/releases/download/${TYPO3SCAN_VERSION}/typo3scan.phar \
+    && chmod +x /usr/local/bin/typo3scan
+
 USER app
 
 RUN set -e -u -x \
