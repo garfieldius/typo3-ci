@@ -60,7 +60,9 @@ RUN set -e -u -x \
 ENV NODE_VERSION=11.15.0
 
 RUN set -e -u -x \
-    && curl -sSL https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz | tar -x -J -C /usr/local --strip-components=1
+    && curl -sSLo node.tar.xz https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz \
+    && tar -x -J -C /usr/local --strip-components=1 -f node.tar.xz \
+    && rm -f node.tar.xz
 
 ENV YARN_VERSION=1.9.0
 

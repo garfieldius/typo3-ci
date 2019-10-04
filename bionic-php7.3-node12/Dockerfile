@@ -57,10 +57,12 @@ RUN set -e -u -x \
         php${PHP_VERSION}-cli php${PHP_VERSION}-curl php${PHP_VERSION}-mbstring php${PHP_VERSION}-zip php${PHP_VERSION}-xml php${PHP_VERSION}-soap \
         php${PHP_VERSION}-json php${PHP_VERSION}-bz2 php${PHP_VERSION}-intl php${PHP_VERSION}-gd php${PHP_VERSION}-mysql php${PHP_VERSION}-sqlite3
 
-ENV NODE_VERSION=12.11.0
+ENV NODE_VERSION=12.11.1
 
 RUN set -e -u -x \
-    && curl -sSL https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz | tar -x -J -C /usr/local --strip-components=1
+    && curl -sSLo node.tar.xz https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz \
+    && tar -x -J -C /usr/local --strip-components=1 -f node.tar.xz \
+    && rm -f node.tar.xz
 
 ENV YARN_VERSION=1.9.0
 
