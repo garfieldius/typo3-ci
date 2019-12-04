@@ -50,7 +50,7 @@ RUN set -e -u -x \
     && apt-cmd purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
         software-properties-common
 
-ENV PHP_VERSION=7.2
+ENV PHP_VERSION=7.4
 
 RUN set -e -u -x \
     && apt-cmd install -y \

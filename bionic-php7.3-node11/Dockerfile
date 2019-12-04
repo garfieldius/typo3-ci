@@ -64,7 +64,7 @@ RUN set -e -u -x \
     && tar -x -J -C /usr/local --strip-components=1 -f node.tar.xz \
     && rm -f node.tar.xz
 
-ENV YARN_VERSION=1.9.1
+ENV YARN_VERSION=1.9.2
 
 RUN set -e -u -x \
     && curl -sSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
@@ -78,7 +78,7 @@ RUN set -e -u -x \
     && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm composer-setup.php
 
-ENV DEPLOYER_VERSION=6.4.6
+ENV DEPLOYER_VERSION=6.6.0
 
 RUN set -e -u -x \
     && curl -sSLo /usr/local/bin/dep https://deployer.org/releases/v${DEPLOYER_VERSION}/deployer.phar \
