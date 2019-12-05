@@ -65,7 +65,6 @@ clean:
 	docker rmi $(IMAGE_TAG):php7.4-node11
 	docker rmi $(IMAGE_TAG):php7.4-node10
 	docker image prune -f
-	@docker push $(IMAGE_TAG)
 
 .PHONY: generate
 generate:
