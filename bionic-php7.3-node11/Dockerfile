@@ -97,7 +97,7 @@ RUN set -e -u -x \
     && rm -rf /app/.composer/cache/*
 
 RUN set -e -u -x \
-    && yarn global add grunt-cli gulp-cli \
+    && yarn global add grunt-cli gulp-cli cross-env \
     && rm -rf /app/.cache/yarn/*
 
 ENV PATH=/app/.config/yarn/global/node_modules/.bin:/app/.composer/vendor/bin:/app/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
