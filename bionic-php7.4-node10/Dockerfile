@@ -64,7 +64,7 @@ RUN set -e -u -x \
     && tar -x -J -C /usr/local --strip-components=1 -f node.tar.xz \
     && rm -f node.tar.xz
 
-ENV YARN_VERSION=1.9.2
+ENV YARN_VERSION=1.21.1
 
 RUN set -e -u -x \
     && curl -sSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
@@ -74,7 +74,7 @@ ENV COMPOSER_VERSION=1.9.1
 
 RUN set -e -u -x \
     && curl -sSLo composer-setup.php https://getcomposer.org/installer \
-    && php -r "if (hash_file('sha384', 'composer-setup.php') !== 'a5c698ffe4b8e849a443b120cd5ba38043260d5c4023dbf93e1558871f1f07f58274fc6f4c93bcfd858c6bd0775cd8d1') { echo 'Installer corrupt' . PHP_EOL; unlink('composer-setup.php'); exit(1); }" \
+    && php -r "if (hash_file('sha384', 'composer-setup.php') !== 'baf1608c33254d00611ac1705c1d9958c817a1a33bce370c0595974b342601bd80b92a3f46067da89e3b06bff421f182') { echo 'Installer corrupt' . PHP_EOL; unlink('composer-setup.php'); exit(1); }" \
     && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm composer-setup.php
 
