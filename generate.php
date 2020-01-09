@@ -2,7 +2,7 @@
 <?php
 
 /*
- * This file is (c) 2019 by Georg Großberger
+ * This file is (c) 2020 by Georg Großberger
  *
  * It is free software; you can redistribute it and/or
  * modify it under the terms of the Apache License 2.0
@@ -14,10 +14,10 @@
 $images = [
     'bionic' => [
         'php' => ['7.2', '7.3', '7.4'],
-        'node' => ['12.13.1', '11.15.0', '10.17.0'],
+        'node' => ['12.14.1', '11.15.0', '10.18.0'],
         'yarn' => '1.21.1',
         'composer' => '1.9.1',
-        'deployer' => '6.6.0',
+        'deployer' => '6.7.3',
         'typo3scan' => '1.6.3',
     ],
 ];
@@ -30,7 +30,7 @@ $tmplClean = "	docker rmi $(IMAGE_TAG):%s\n";
 
 $tmplFile = '
 
-# This file is (c) 2019 by Georg Großberger
+# This file is (c) 2020 by Georg Großberger
 #
 # It is free software; you can redistribute it and/or
 # modify it under the terms of the Apache License 2.0

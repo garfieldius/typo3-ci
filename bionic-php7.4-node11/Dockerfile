@@ -1,5 +1,5 @@
 
-# This file is (c) 2019 by Georg Großberger
+# This file is (c) 2020 by Georg Großberger
 #
 # It is free software; you can redistribute it and/or
 # modify it under the terms of the Apache License 2.0
@@ -78,7 +78,7 @@ RUN set -e -u -x \
     && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm composer-setup.php
 
-ENV DEPLOYER_VERSION=6.6.0
+ENV DEPLOYER_VERSION=6.7.3
 
 RUN set -e -u -x \
     && curl -sSLo /usr/local/bin/dep https://deployer.org/releases/v${DEPLOYER_VERSION}/deployer.phar \

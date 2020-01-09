@@ -1,5 +1,5 @@
 
-# This file is (c) 2019 by Georg Großberger
+# This file is (c) 2020 by Georg Großberger
 #
 # It is free software; you can redistribute it and/or
 # modify it under the terms of the Apache License 2.0
@@ -57,7 +57,7 @@ RUN set -e -u -x \
         php${PHP_VERSION}-cli php${PHP_VERSION}-curl php${PHP_VERSION}-mbstring php${PHP_VERSION}-zip php${PHP_VERSION}-xml php${PHP_VERSION}-soap \
         php${PHP_VERSION}-json php${PHP_VERSION}-bz2 php${PHP_VERSION}-intl php${PHP_VERSION}-gd php${PHP_VERSION}-mysql php${PHP_VERSION}-sqlite3
 
-ENV NODE_VERSION=12.13.1
+ENV NODE_VERSION=12.14.1
 
 RUN set -e -u -x \
     && curl -sSLo node.tar.xz https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz \
@@ -78,7 +78,7 @@ RUN set -e -u -x \
     && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm composer-setup.php
 
-ENV DEPLOYER_VERSION=6.6.0
+ENV DEPLOYER_VERSION=6.7.3
 
 RUN set -e -u -x \
     && curl -sSLo /usr/local/bin/dep https://deployer.org/releases/v${DEPLOYER_VERSION}/deployer.phar \
