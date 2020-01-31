@@ -37,7 +37,7 @@ RUN set -e -u -x \
     && curl -fsSLo docker.key https://download.docker.com/linux/ubuntu/gpg \
     && apt-key add docker.key \
     && rm -f docker.key \
-    && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" \
+    && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" -y \
     && add-apt-repository ppa:ondrej/php -y \
     && add-apt-repository ppa:git-core/ppa -y \
     \
@@ -52,7 +52,7 @@ RUN set -e -u -x \
            libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils \
     \
     && apt-cmd purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
-        software-properties-common
+        software-properties-common apt-transport-https
 
 ENV PHP_VERSION=7.3
 
@@ -78,7 +78,7 @@ ENV COMPOSER_VERSION=1.9.2
 
 RUN set -e -u -x \
     && curl -sSLo composer-setup.php https://getcomposer.org/installer \
-    && php -r "if (hash_file('sha384', 'composer-setup.php') !== 'baf1608c33254d00611ac1705c1d9958c817a1a33bce370c0595974b342601bd80b92a3f46067da89e3b06bff421f182') { echo 'Installer corrupt' . PHP_EOL; unlink('composer-setup.php'); exit(1); }" \
+    && php -r "if (hash_file('sha384', 'composer-setup.php') !== 'c5b9b6d368201a9db6f74e2611495f369991b72d9c8cbd3ffbc63edff210eb73d46ffbfce88669ad33695ef77dc76976') { echo 'Installer corrupt' . PHP_EOL; unlink('composer-setup.php'); exit(1); }" \
     && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm composer-setup.php
 
