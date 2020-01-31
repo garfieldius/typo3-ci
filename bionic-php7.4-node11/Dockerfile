@@ -32,14 +32,18 @@ RUN set -e -u -x \
     && echo "UTC" > /etc/timezone \
     && chmod +x /bin/apt-cmd \
     \
-    && apt-cmd install -y curl gnupg software-properties-common \
+    && apt-cmd install -y curl gnupg software-properties-common apt-transport-https ca-certificates \
     \
+    && curl -fsSLo docker.key https://download.docker.com/linux/ubuntu/gpg \
+    && apt-key add docker.key \
+    && rm -f docker.key \
+    && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" \
     && add-apt-repository ppa:ondrej/php -y \
     && add-apt-repository ppa:git-core/ppa -y \
     \
     && apt update -y \
     && apt full-upgrade -y \
-    && apt install -y gcc g++ make openssl jq wget less \
+    && apt install -y gcc g++ make openssl jq wget less docker-ce-cli \
            rsync xz-utils openssh-client git zip unzip mysql-client default-jre-headless patch \
            xvfb gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 \
            libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 \
