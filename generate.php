@@ -19,6 +19,7 @@ $images = [
         'composer' => '1.9.3',
         'deployer' => '6.7.3',
         'typo3scan' => '1.6.3',
+        'surf' => '2.0.2',
     ],
 ];
 
@@ -87,6 +88,7 @@ foreach ($images as $image => $versions) {
                 'COMPOSER_VERSION' => $versions['composer'],
                 'DEPLOYER_VERSION' => $versions['deployer'],
                 'TYPO3SCAN_VERSION' => $versions['typo3scan'],
+                'SURF_VERSION' => $versions['surf'],
             ];
 
             foreach ($markers as $name => $value) {

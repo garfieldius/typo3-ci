@@ -80,7 +80,7 @@ ENV COMPOSER_VERSION=1.9.3
 
 RUN set -e -u -x \
     && curl -sSLo composer-setup.php https://getcomposer.org/installer \
-    && php -r "if (hash_file('sha384', 'composer-setup.php') !== 'c5b9b6d368201a9db6f74e2611495f369991b72d9c8cbd3ffbc63edff210eb73d46ffbfce88669ad33695ef77dc76976') { echo 'Installer corrupt' . PHP_EOL; unlink('composer-setup.php'); exit(1); }" \
+    && php -r "if (hash_file('sha384', 'composer-setup.php') !== 'e0012edf3e80b6978849f5eff0d4b4e4c79ff1609dd1e613307e16318854d24ae64f26d17af3ef0bf7cfb710ca74755a') { echo 'Installer corrupt' . PHP_EOL; unlink('composer-setup.php'); exit(1); }" \
     && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm composer-setup.php
 
@@ -96,11 +96,13 @@ RUN set -e -u -x \
     && curl -sSLo /usr/local/bin/typo3scan https://github.com/Tuurlijk/typo3scan/releases/download/${TYPO3SCAN_VERSION}/typo3scan.phar \
     && chmod +x /usr/local/bin/typo3scan
 
-USER app
+ENV SURF_VERSION=#2.0.2#
 
 RUN set -e -u -x \
-    && composer global require --no-suggest --no-progress --ignore-platform-reqs typo3/surf:dev-master \
-    && rm -rf /app/.composer/cache/*
+    && curl -sSLo /usr/local/bin/surf https://github.com/TYPO3/Surf/releases/download/${SURF_VERSION}/surf.phar \
+    && chmod +x /usr/local/bin/surf
+
+USER app
 
 RUN set -e -u -x \
     && yarn global add grunt-cli gulp-cli cross-env \
