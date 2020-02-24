@@ -2,7 +2,7 @@
 
 This contains a set of configurations to build docker images that are ready to
 use for CI / CD or manual building, testing and deployment of TYPO3 projects.
-They are all available freely at <https://hub.docker.com/garfieldius/typo3-ci>
+They are all available freely at <https://hub.docker.com/r/garfieldius/typo3-ci>
 
 There is no `:latest` tag on purpose; setting an explicit PHP + node.js version
 is required when using them.
