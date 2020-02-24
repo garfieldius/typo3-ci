@@ -84,25 +84,22 @@ RUN set -e -u -x \
     && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm composer-setup.php
 
-ENV DEPLOYER_VERSION=##DEPLOYER_VERSION##
-
-RUN set -e -u -x \
-    && curl -sSLo /usr/local/bin/dep https://deployer.org/releases/v${DEPLOYER_VERSION}/deployer.phar \
-    && chmod +x /usr/local/bin/dep
-
 ENV TYPO3SCAN_VERSION=##TYPO3SCAN_VERSION##
 
 RUN set -e -u -x \
     && curl -sSLo /usr/local/bin/typo3scan https://github.com/Tuurlijk/typo3scan/releases/download/${TYPO3SCAN_VERSION}/typo3scan.phar \
     && chmod +x /usr/local/bin/typo3scan
 
-ENV SURF_VERSION=###SURF_VERSION###
+USER app
+
+ENV DEPLOYER_VERSION=##DEPLOYER_VERSION##
+ENV SURF_VERSION=##SURF_VERSION##
 
 RUN set -e -u -x \
-    && curl -sSLo /usr/local/bin/surf https://github.com/TYPO3/Surf/releases/download/${SURF_VERSION}/surf.phar \
-    && chmod +x /usr/local/bin/surf
-
-USER app
+    && composer global require --no-suggest --ansi --no-progress --update-no-dev \
+        typo3/surf:${SURF_VERSION} \
+        deployer/deployer:${DEPLOYER_VERSION} \
+    && rm -rf /app/.composer/cache/*
 
 RUN set -e -u -x \
     && yarn global add grunt-cli gulp-cli cross-env \
