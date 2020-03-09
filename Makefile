@@ -15,39 +15,39 @@ default: bionic-php7.2-node12 bionic-php7.2-node11 bionic-php7.2-node10 bionic-p
 
 .PHONY: bionic-php7.2-node12
 bionic-php7.2-node12:
-	docker build --pull -t $(IMAGE_TAG):php7.2-node12 ./bionic-php7.2-node12/.
+	@docker build --pull -t $(IMAGE_TAG):php7.2-node12 ./bionic-php7.2-node12/.
 
 .PHONY: bionic-php7.2-node11
 bionic-php7.2-node11:
-	docker build --pull -t $(IMAGE_TAG):php7.2-node11 ./bionic-php7.2-node11/.
+	@docker build --pull -t $(IMAGE_TAG):php7.2-node11 ./bionic-php7.2-node11/.
 
 .PHONY: bionic-php7.2-node10
 bionic-php7.2-node10:
-	docker build --pull -t $(IMAGE_TAG):php7.2-node10 ./bionic-php7.2-node10/.
+	@docker build --pull -t $(IMAGE_TAG):php7.2-node10 ./bionic-php7.2-node10/.
 
 .PHONY: bionic-php7.3-node12
 bionic-php7.3-node12:
-	docker build --pull -t $(IMAGE_TAG):php7.3-node12 ./bionic-php7.3-node12/.
+	@docker build --pull -t $(IMAGE_TAG):php7.3-node12 ./bionic-php7.3-node12/.
 
 .PHONY: bionic-php7.3-node11
 bionic-php7.3-node11:
-	docker build --pull -t $(IMAGE_TAG):php7.3-node11 ./bionic-php7.3-node11/.
+	@docker build --pull -t $(IMAGE_TAG):php7.3-node11 ./bionic-php7.3-node11/.
 
 .PHONY: bionic-php7.3-node10
 bionic-php7.3-node10:
-	docker build --pull -t $(IMAGE_TAG):php7.3-node10 ./bionic-php7.3-node10/.
+	@docker build --pull -t $(IMAGE_TAG):php7.3-node10 ./bionic-php7.3-node10/.
 
 .PHONY: bionic-php7.4-node12
 bionic-php7.4-node12:
-	docker build --pull -t $(IMAGE_TAG):php7.4-node12 ./bionic-php7.4-node12/.
+	@docker build --pull -t $(IMAGE_TAG):php7.4-node12 ./bionic-php7.4-node12/.
 
 .PHONY: bionic-php7.4-node11
 bionic-php7.4-node11:
-	docker build --pull -t $(IMAGE_TAG):php7.4-node11 ./bionic-php7.4-node11/.
+	@docker build --pull -t $(IMAGE_TAG):php7.4-node11 ./bionic-php7.4-node11/.
 
 .PHONY: bionic-php7.4-node10
 bionic-php7.4-node10:
-	docker build --pull -t $(IMAGE_TAG):php7.4-node10 ./bionic-php7.4-node10/.
+	@docker build --pull -t $(IMAGE_TAG):php7.4-node10 ./bionic-php7.4-node10/.
 
 .PHONY: push
 push:
@@ -55,17 +55,17 @@ push:
 
 .PHONY: clean
 clean:
-	docker rmi $(IMAGE_TAG):php7.2-node12
-	docker rmi $(IMAGE_TAG):php7.2-node11
-	docker rmi $(IMAGE_TAG):php7.2-node10
-	docker rmi $(IMAGE_TAG):php7.3-node12
-	docker rmi $(IMAGE_TAG):php7.3-node11
-	docker rmi $(IMAGE_TAG):php7.3-node10
-	docker rmi $(IMAGE_TAG):php7.4-node12
-	docker rmi $(IMAGE_TAG):php7.4-node11
-	docker rmi $(IMAGE_TAG):php7.4-node10
-	docker image prune -f
+	@docker rmi $(IMAGE_TAG):php7.2-node12
+	@docker rmi $(IMAGE_TAG):php7.2-node11
+	@docker rmi $(IMAGE_TAG):php7.2-node10
+	@docker rmi $(IMAGE_TAG):php7.3-node12
+	@docker rmi $(IMAGE_TAG):php7.3-node11
+	@docker rmi $(IMAGE_TAG):php7.3-node10
+	@docker rmi $(IMAGE_TAG):php7.4-node12
+	@docker rmi $(IMAGE_TAG):php7.4-node11
+	@docker rmi $(IMAGE_TAG):php7.4-node10
+	@docker image prune -f
 
 .PHONY: generate
 generate:
-	php generate.php
+	@php generate.php

@@ -25,9 +25,9 @@ $images = [
 
 $tmplBuild = '.PHONY: %1$s
 %1$s:
-	docker build --pull -t $(IMAGE_TAG):%2$s ./%1$s/.';
+	@docker build --pull -t $(IMAGE_TAG):%2$s ./%1$s/.';
 
-$tmplClean = "	docker rmi $(IMAGE_TAG):%s\n";
+$tmplClean = "	@docker rmi $(IMAGE_TAG):%s\n";
 
 $tmplFile = '
 
@@ -52,11 +52,11 @@ push:
 
 .PHONY: clean
 clean:
-%s	docker image prune -f
+%s	@docker image prune -f
 
 .PHONY: generate
 generate:
-	php generate.php
+	@php generate.php
 ';
 
 $defaults = [];
