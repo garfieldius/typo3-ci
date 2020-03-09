@@ -70,7 +70,7 @@ RUN set -e -u -x \
     && tar -x -J -C /usr/local --strip-components=1 -f node.tar.xz \
     && rm -f node.tar.xz
 
-ENV YARN_VERSION=1.22.0
+ENV YARN_VERSION=1.22.1
 
 RUN set -e -u -x \
     && curl -sSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
