@@ -56,12 +56,13 @@ RUN set -e -u -x \
     && apt-cmd purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
         software-properties-common apt-transport-https
 
-ENV PHP_VERSION=7.2
+ENV PHP_VERSION=7.2.28
+ENV PHP_BRANCH=7.2
 
 RUN set -e -u -x \
     && apt-cmd install -y \
-        php${PHP_VERSION}-cli php${PHP_VERSION}-curl php${PHP_VERSION}-mbstring php${PHP_VERSION}-zip php${PHP_VERSION}-xml php${PHP_VERSION}-soap \
-        php${PHP_VERSION}-json php${PHP_VERSION}-bz2 php${PHP_VERSION}-intl php${PHP_VERSION}-gd php${PHP_VERSION}-mysql php${PHP_VERSION}-sqlite3
+        php${PHP_BRANCH}-cli php${PHP_BRANCH}-curl php${PHP_BRANCH}-mbstring php${PHP_BRANCH}-zip php${PHP_BRANCH}-xml php${PHP_BRANCH}-soap \
+        php${PHP_BRANCH}-json php${PHP_BRANCH}-bz2 php${PHP_BRANCH}-intl php${PHP_BRANCH}-gd php${PHP_BRANCH}-mysql php${PHP_BRANCH}-sqlite3
 
 ENV NODE_VERSION=12.16.1
 

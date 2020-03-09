@@ -13,7 +13,7 @@
 
 $images = [
     'bionic' => [
-        'php' => ['7.2', '7.3', '7.4'],
+        'php' => ['7.2.28', '7.3.15', '7.4.3'],
         'node' => ['12.16.1', '11.15.0', '10.19.0'],
         'yarn' => '1.22.1',
         'composer' => '1.9.3',
@@ -69,6 +69,9 @@ foreach ($images as $image => $versions) {
     exec("rm -rf $baseDir$image-php*");
 
     foreach ($versions['php'] as $php) {
+        $phpFull = $php;
+        $php = substr($php, 0, 3);
+
         foreach ($versions['node'] as $node) {
             $nodeVersionParts = explode('.', $node);
             $nodeMajor = array_shift($nodeVersionParts);
@@ -82,7 +85,8 @@ foreach ($images as $image => $versions) {
             $dockerfileContent = file_get_contents($dockerfilePath);
 
             $markers = [
-                'PHP_VERSION' => $php,
+                'PHP_VERSION' => $phpFull,
+                'PHP_BRANCH' => $php,
                 'NODE_VERSION' => $node,
                 'YARN_VERSION' => $versions['yarn'],
                 'COMPOSER_VERSION' => $versions['composer'],
