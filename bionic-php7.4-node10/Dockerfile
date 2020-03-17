@@ -71,13 +71,13 @@ RUN set -e -u -x \
     && tar -x -J -C /usr/local --strip-components=1 -f node.tar.xz \
     && rm -f node.tar.xz
 
-ENV YARN_VERSION=1.22.1
+ENV YARN_VERSION=1.22.4
 
 RUN set -e -u -x \
     && curl -sSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
     && chmod +x /usr/local/bin/yarn
 
-ENV COMPOSER_VERSION=1.9.3
+ENV COMPOSER_VERSION=1.10.1
 
 RUN set -e -u -x \
     && curl -sSLo composer-setup.php https://getcomposer.org/installer \
