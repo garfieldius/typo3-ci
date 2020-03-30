@@ -93,7 +93,7 @@ RUN set -e -u -x \
 
 USER app
 
-ENV DEPLOYER_VERSION=6.7.6
+ENV DEPLOYER_VERSION=6.7.3
 ENV SURF_VERSION=2.0.2
 
 RUN set -e -u -x \
