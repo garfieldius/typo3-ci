@@ -85,7 +85,7 @@ RUN set -e -u -x \
     && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm composer-setup.php
 
-ENV TYPO3SCAN_VERSION=1.6.3
+ENV TYPO3SCAN_VERSION=1.6.4
 
 RUN set -e -u -x \
     && curl -sSLo /usr/local/bin/typo3scan https://github.com/Tuurlijk/typo3scan/releases/download/${TYPO3SCAN_VERSION}/typo3scan.phar \

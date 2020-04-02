@@ -18,7 +18,7 @@ $images = [
         'yarn' => '1.22.4',
         'composer' => '1.10.1',
         'deployer' => '6.7.3',
-        'typo3scan' => '1.6.3',
+        'typo3scan' => '1.6.4',
         'surf' => '2.0.2',
     ],
 ];
