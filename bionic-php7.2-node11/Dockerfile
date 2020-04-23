@@ -56,7 +56,7 @@ RUN set -e -u -x \
     && apt-cmd purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
         software-properties-common apt-transport-https
 
-ENV PHP_VERSION=7.2.29
+ENV PHP_VERSION=7.2.30
 ENV PHP_BRANCH=7.2
 
 RUN set -e -u -x \
@@ -77,7 +77,7 @@ RUN set -e -u -x \
     && curl -sSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
     && chmod +x /usr/local/bin/yarn
 
-ENV COMPOSER_VERSION=1.10.1
+ENV COMPOSER_VERSION=1.10.5
 
 RUN set -e -u -x \
     && curl -sSLo composer-setup.php https://getcomposer.org/installer \
