@@ -56,7 +56,7 @@ RUN set -e -u -x \
     && apt-cmd purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
         software-properties-common apt-transport-https
 
-ENV PHP_VERSION=7.4.5
+ENV PHP_VERSION=7.4.6
 ENV PHP_BRANCH=7.4
 
 RUN set -e -u -x \
