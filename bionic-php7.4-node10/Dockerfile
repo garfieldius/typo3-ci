@@ -64,7 +64,7 @@ RUN set -e -u -x \
         php${PHP_BRANCH}-cli php${PHP_BRANCH}-curl php${PHP_BRANCH}-mbstring php${PHP_BRANCH}-zip php${PHP_BRANCH}-xml php${PHP_BRANCH}-soap \
         php${PHP_BRANCH}-json php${PHP_BRANCH}-bz2 php${PHP_BRANCH}-intl php${PHP_BRANCH}-gd php${PHP_BRANCH}-mysql php${PHP_BRANCH}-sqlite3
 
-ENV NODE_VERSION=10.20.1
+ENV NODE_VERSION=10.21.0
 
 RUN set -e -u -x \
     && curl -sSLo node.tar.xz https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz \
@@ -77,7 +77,7 @@ RUN set -e -u -x \
     && curl -sSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
     && chmod +x /usr/local/bin/yarn
 
-ENV COMPOSER_VERSION=1.10.6
+ENV COMPOSER_VERSION=1.10.7
 
 RUN set -e -u -x \
     && curl -sSLo composer-setup.php https://getcomposer.org/installer \
@@ -85,7 +85,7 @@ RUN set -e -u -x \
     && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm composer-setup.php
 
-ENV TYPO3SCAN_VERSION=1.6.4
+ENV TYPO3SCAN_VERSION=1.6.5
 
 RUN set -e -u -x \
     && curl -sSLo /usr/local/bin/typo3scan https://github.com/Tuurlijk/typo3scan/releases/download/${TYPO3SCAN_VERSION}/typo3scan.phar \
