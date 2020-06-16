@@ -56,7 +56,7 @@ RUN set -e -u -x \
     && apt-cmd purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
         software-properties-common apt-transport-https
 
-ENV PHP_VERSION=7.3.18
+ENV PHP_VERSION=7.3.19
 ENV PHP_BRANCH=7.3
 
 RUN set -e -u -x \
@@ -94,7 +94,7 @@ RUN set -e -u -x \
 USER app
 
 ENV DEPLOYER_VERSION=6.8.0
-ENV SURF_VERSION=2.0.2
+ENV SURF_VERSION=2.1.1
 
 RUN set -e -u -x \
     && composer global require --no-suggest --no-ansi --no-progress --update-no-dev --ignore-platform-reqs \

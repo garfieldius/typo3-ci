@@ -94,7 +94,7 @@ RUN set -e -u -x \
 USER app
 
 ENV DEPLOYER_VERSION=6.8.0
-ENV SURF_VERSION=2.0.2
+ENV SURF_VERSION=2.1.1
 
 RUN set -e -u -x \
     && composer global require --no-suggest --no-ansi --no-progress --update-no-dev --ignore-platform-reqs \
