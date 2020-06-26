@@ -13,8 +13,17 @@
 
 $images = [
     'bionic' => [
-        'php' => ['7.2.31', '7.3.19', '7.4.7'],
-        'node' => ['14.4.0', '12.18.0', '10.21.0'],
+        'php' => ['7.2.31', '7.3.19'],
+        'node' => ['12.18.0', '10.21.0'],
+        'yarn' => '1.22.4',
+        'composer' => '1.10.7',
+        'deployer' => '6.8.0',
+        'typo3scan' => '1.6.5',
+        'surf' => '2.1.1',
+    ],
+    'focal' => [
+        'php' => ['7.4.7'],
+        'node' => ['14.4.0'],
         'yarn' => '1.22.4',
         'composer' => '1.10.7',
         'deployer' => '6.8.0',
@@ -65,9 +74,9 @@ $targets = [];
 
 $baseDir = realpath(__DIR__) . DIRECTORY_SEPARATOR;
 
-foreach ($images as $image => $versions) {
-    exec("rm -rf $baseDir$image-php*");
+exec("rm -rf ${baseDir}php*");
 
+foreach ($images as $image => $versions) {
     foreach ($versions['php'] as $php) {
         $phpFull = $php;
         $php = substr($php, 0, 3);
@@ -78,10 +87,10 @@ foreach ($images as $image => $versions) {
 
             $tag = 'php' . $php . '-node' . $nodeMajor;
 
-            exec("cp -a ${baseDir}template-${image} ${baseDir}${image}-${tag}");
-            exec("mv ${baseDir}${image}-${tag}/Dockerfile.tmpl ${baseDir}${image}-${tag}/Dockerfile");
+            exec("cp -a ${baseDir}template-${image} ${baseDir}${tag}");
+            exec("mv ${baseDir}${tag}/Dockerfile.tmpl ${baseDir}${tag}/Dockerfile");
 
-            $dockerfilePath = $baseDir . $image . '-' . $tag . DIRECTORY_SEPARATOR . 'Dockerfile';
+            $dockerfilePath = $baseDir . $tag . DIRECTORY_SEPARATOR . 'Dockerfile';
             $dockerfileContent = file_get_contents($dockerfilePath);
 
             $markers = [
@@ -101,7 +110,7 @@ foreach ($images as $image => $versions) {
 
             file_put_contents($dockerfilePath, $dockerfileContent);
 
-            $name = $image . '-' . $tag;
+            $name = $tag;
 
             $defaults[] = $name;
             $cleans[] = sprintf($tmplClean, $tag);
