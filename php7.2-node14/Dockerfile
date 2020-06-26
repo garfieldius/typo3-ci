@@ -7,7 +7,7 @@
 # For the full copyright and license information see
 # <https://www.apache.org/licenses/LICENSE-2.0>
 
-FROM ubuntu:focal
+FROM ubuntu:bionic
 
 RUN set -e -x \
     && mkdir /app \
@@ -56,8 +56,8 @@ RUN set -e -u -x \
     && apt-cmd purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
         software-properties-common apt-transport-https
 
-ENV PHP_VERSION=7.4.7
-ENV PHP_BRANCH=7.4
+ENV PHP_VERSION=7.2.31
+ENV PHP_BRANCH=7.2
 
 RUN set -e -u -x \
     && apt-cmd install -y \

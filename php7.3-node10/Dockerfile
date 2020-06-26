@@ -77,7 +77,7 @@ RUN set -e -u -x \
     && curl -sSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
     && chmod +x /usr/local/bin/yarn
 
-ENV COMPOSER_VERSION=1.10.7
+ENV COMPOSER_VERSION=1.10.8
 
 RUN set -e -u -x \
     && curl -sSLo composer-setup.php https://getcomposer.org/installer \
@@ -85,7 +85,7 @@ RUN set -e -u -x \
     && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm composer-setup.php
 
-ENV TYPO3SCAN_VERSION=1.6.5
+ENV TYPO3SCAN_VERSION=1.6.6
 
 RUN set -e -u -x \
     && curl -sSLo /usr/local/bin/typo3scan https://github.com/Tuurlijk/typo3scan/releases/download/${TYPO3SCAN_VERSION}/typo3scan.phar \
