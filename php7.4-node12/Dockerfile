@@ -41,7 +41,6 @@ RUN set -e -u -x \
     && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" -y \
     && add-apt-repository ppa:ondrej/php -y \
     && add-apt-repository ppa:git-core/ppa -y \
-    && add-apt-repository ppa:ansible/ansible -y \
     \
     && apt update -y \
     && apt full-upgrade -y \
