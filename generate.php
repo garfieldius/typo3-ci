@@ -11,26 +11,26 @@
  * <https://www.apache.org/licenses/LICENSE-2.0>
  */
 
-$nodes = ['14.4.0', '12.18.1', '10.21.0'];
+$nodes = ['14.15.0', '12.19.0', '10.23.0'];
 
 $images = [
     'bionic' => [
-        'php' => ['7.2.31', '7.3.19'],
+        'php' => ['7.2.34', '7.3.24'],
         'node' => $nodes,
-        'yarn' => '1.22.4',
-        'composer' => '1.10.8',
+        'yarn' => '1.22.10',
+        'composer' => '2.0.4',
         'deployer' => '6.8.0',
-        'typo3scan' => '1.6.6',
-        'surf' => '2.1.1',
+        'typo3scan' => '1.7.2',
+        'surf' => '2.2.1',
     ],
     'focal' => [
-        'php' => ['7.4.7'],
+        'php' => ['7.4.12'],
         'node' => $nodes,
-        'yarn' => '1.22.4',
-        'composer' => '1.10.8',
+        'yarn' => '1.22.10',
+        'composer' => '2.0.4',
         'deployer' => '6.8.0',
-        'typo3scan' => '1.6.6',
-        'surf' => '2.1.1',
+        'typo3scan' => '1.7.2',
+        'surf' => '2.2.1',
     ],
 ];
 
