@@ -80,7 +80,7 @@ ENV COMPOSER_VERSION=2.0.4
 
 RUN set -e -u -x \
     && curl -sSLo composer-setup.php https://getcomposer.org/installer \
-    && php -r "if (hash_file('sha384', 'composer-setup.php') !== 'e0012edf3e80b6978849f5eff0d4b4e4c79ff1609dd1e613307e16318854d24ae64f26d17af3ef0bf7cfb710ca74755a') { echo 'Installer corrupt' . PHP_EOL; unlink('composer-setup.php'); exit(1); }" \
+    && php -r "if (hash_file('sha384', 'composer-setup.php') !== 'c31c1e292ad7be5f49291169c0ac8f683499edddcfd4e42232982d0fd193004208a58ff6f353fde0012d35fdd72bc394') { echo 'Installer corrupt' . PHP_EOL; unlink('composer-setup.php'); exit(1); }" \
     && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm composer-setup.php
 
