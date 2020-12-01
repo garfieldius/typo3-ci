@@ -9,17 +9,14 @@ is required when using them.
 
 ## Available Tags
 
-* [PHP 7.4 / node 14](https://github.com/garfieldius/typo3-ci/blob/master/bionic-php7.4-node14/Dockerfile)
-* [PHP 7.3 / node 14](https://github.com/garfieldius/typo3-ci/blob/master/bionic-php7.3-node14/Dockerfile)
-* [PHP 7.2 / node 14](https://github.com/garfieldius/typo3-ci/blob/master/bionic-php7.2-node14/Dockerfile)
+* [PHP 8.0 / node 14](https://github.com/garfieldius/typo3-ci/blob/master/php8.0-node14/Dockerfile)
+* [PHP 7.4 / node 14](https://github.com/garfieldius/typo3-ci/blob/master/php7.4-node14/Dockerfile)
 
-* [PHP 7.4 / node 12](https://github.com/garfieldius/typo3-ci/blob/master/bionic-php7.4-node12/Dockerfile)
-* [PHP 7.3 / node 12](https://github.com/garfieldius/typo3-ci/blob/master/bionic-php7.3-node12/Dockerfile)
-* [PHP 7.2 / node 12](https://github.com/garfieldius/typo3-ci/blob/master/bionic-php7.2-node12/Dockerfile)
+* [PHP 7.3 / node 12](https://github.com/garfieldius/typo3-ci/blob/master/php7.3-node12/Dockerfile)
+* [PHP 7.2 / node 12](https://github.com/garfieldius/typo3-ci/blob/master/php7.2-node12/Dockerfile)
 
-* [PHP 7.4 / node 10](https://github.com/garfieldius/typo3-ci/blob/master/bionic-php7.4-node10/Dockerfile)
-* [PHP 7.3 / node 10](https://github.com/garfieldius/typo3-ci/blob/master/bionic-php7.3-node10/Dockerfile)
-* [PHP 7.2 / node 10](https://github.com/garfieldius/typo3-ci/blob/master/bionic-php7.2-node10/Dockerfile)
+* [PHP 7.3 / node 10](https://github.com/garfieldius/typo3-ci/blob/master/php7.3-node10/Dockerfile)
+* [PHP 7.2 / node 10](https://github.com/garfieldius/typo3-ci/blob/master/php7.2-node10/Dockerfile)
 
 ## Building
 
