@@ -7,7 +7,7 @@
 # For the full copyright and license information see
 # <https://www.apache.org/licenses/LICENSE-2.0>
 
-FROM ubuntu:bionic
+FROM ubuntu:focal
 
 RUN set -e -x \
     && mkdir /app \
@@ -41,7 +41,6 @@ RUN set -e -u -x \
     && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" -y \
     && add-apt-repository ppa:ondrej/php -y \
     && add-apt-repository ppa:git-core/ppa -y \
-    && add-apt-repository ppa:ansible/ansible -y \
     \
     && apt update -y \
     && apt full-upgrade -y \
@@ -56,8 +55,8 @@ RUN set -e -u -x \
     && apt-cmd purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
         software-properties-common apt-transport-https
 
-ENV PHP_VERSION=7.3.24
-ENV PHP_BRANCH=7.3
+ENV PHP_VERSION=8.0.0
+ENV PHP_BRANCH=8.0
 
 RUN set -e -u -x \
     && apt-cmd install -y \
