@@ -76,7 +76,7 @@ RUN set -e -u -x \
     && curl -sSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
     && chmod +x /usr/local/bin/yarn
 
-ENV COMPOSER_VERSION=2.0.7
+ENV COMPOSER_VERSION=2.0.8
 
 RUN set -e -u -x \
     && curl -sSLo composer-setup.php https://getcomposer.org/installer \
