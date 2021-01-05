@@ -108,7 +108,7 @@ foreach ($images as $image => $versions) {
                 $dockerfileContent = str_replace("##$name##", $value, $dockerfileContent);
             }
 
-            if ((int) $php >= 8.0) {
+            if ((float) $php >= 8.0) {
                 $dockerfileContent = str_replace('php${PHP_BRANCH}-json ', '', $dockerfileContent);
             }
 
