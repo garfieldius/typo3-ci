@@ -100,11 +100,11 @@ RUN set -e -u -x \
     && composer global require --no-ansi --no-progress --update-no-dev --ignore-platform-reqs \
         typo3/surf:${SURF_VERSION} \
         deployer/deployer:${DEPLOYER_VERSION} \
-    && rm -rf /app/.composer/cache/*
+    && rm -rf $(composer config -g -q cache-dir)
 
 RUN set -e -u -x \
     && yarn global add grunt-cli gulp-cli cross-env \
-    && rm -rf /app/.cache/yarn/*
+    && rm -rf $(yarn cache dir)
 
 ENV PATH=/app/.config/yarn/global/node_modules/.bin:/app/.config/composer/vendor/bin:/app/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
