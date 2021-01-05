@@ -97,7 +97,7 @@ ENV DEPLOYER_VERSION=6.8.0
 ENV SURF_VERSION=2.2.1
 
 RUN set -e -u -x \
-    && composer global require --no-suggest --no-ansi --no-progress --update-no-dev --ignore-platform-reqs \
+    && composer global require --no-ansi --no-progress --update-no-dev --ignore-platform-reqs \
         typo3/surf:${SURF_VERSION} \
         deployer/deployer:${DEPLOYER_VERSION} \
     && rm -rf /app/.composer/cache/*
