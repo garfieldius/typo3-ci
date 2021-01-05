@@ -63,7 +63,7 @@ RUN set -e -u -x \
         php${PHP_BRANCH}-cli php${PHP_BRANCH}-curl php${PHP_BRANCH}-mbstring php${PHP_BRANCH}-zip php${PHP_BRANCH}-xml php${PHP_BRANCH}-soap \
         php${PHP_BRANCH}-bz2 php${PHP_BRANCH}-intl php${PHP_BRANCH}-gd php${PHP_BRANCH}-mysql php${PHP_BRANCH}-sqlite3
 
-ENV NODE_VERSION=14.15.1
+ENV NODE_VERSION=14.15.4
 
 RUN set -e -u -x \
     && curl -sSLo node.tar.xz https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz \
@@ -91,7 +91,7 @@ RUN set -e -u -x \
 USER app
 
 ENV DEPLOYER_VERSION=6.8.0
-ENV SURF_VERSION=2.2.1
+ENV SURF_VERSION=2.3.0
 
 RUN set -e -u -x \
     && composer global require --no-ansi --no-progress --update-no-dev --ignore-platform-reqs \
