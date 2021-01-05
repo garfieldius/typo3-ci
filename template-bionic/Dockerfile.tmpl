@@ -80,10 +80,8 @@ RUN set -e -u -x \
 ENV COMPOSER_VERSION=##COMPOSER_VERSION##
 
 RUN set -e -u -x \
-    && curl -sSLo composer-setup.php https://getcomposer.org/installer \
-    && php -r "if (hash_file('sha384', 'composer-setup.php') !== '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer corrupt' . PHP_EOL; unlink('composer-setup.php'); exit(1); }" \
-    && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
-    && rm composer-setup.php
+    && curl -fsSLo /usr/local/bin/composer https://getcomposer.org/download/${COMPOSER_VERSION}/composer.phar \
+    && chmod +x /usr/local/bin/composer
 
 ENV TYPO3SCAN_VERSION=##TYPO3SCAN_VERSION##
 
