@@ -45,15 +45,18 @@ RUN set -e -u -x \
     && apt update -y \
     && apt full-upgrade -y \
     && apt install -y gcc g++ make openssl jq wget less docker-ce-cli ansible \
-           rsync xz-utils openssh-client git zip unzip mysql-client default-jre-headless patch \
-           xvfb gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 \
-           libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 \
-           libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 \
-           libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 \
-           libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils \
+           rsync xz-utils openssh-client git zip unzip mysql-client default-jre-headless patch
     \
     && apt-cmd purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
         software-properties-common apt-transport-https
+
+RUN set -e -u -x \
+    && apt-cmd install -y \
+       xvfb gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 \
+       libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 \
+       libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 \
+       libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 \
+       libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils
 
 ENV PHP_VERSION=##PHP_VERSION##
 ENV PHP_BRANCH=##PHP_BRANCH##
