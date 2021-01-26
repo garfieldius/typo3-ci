@@ -85,16 +85,11 @@ RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/composer https://getcomposer.org/download/${COMPOSER_VERSION}/composer.phar \
     && chmod +x /usr/local/bin/composer
 
-ENV TYPO3SCAN_VERSION=1.7.2
-
-RUN set -e -u -x \
-    && curl -sSLo /usr/local/bin/typo3scan https://github.com/Tuurlijk/typo3scan/releases/download/${TYPO3SCAN_VERSION}/typo3scan.phar \
-    && chmod +x /usr/local/bin/typo3scan
-
 USER app
 
+ENV TYPO3SCAN_VERSION=1.7.2
 ENV DEPLOYER_VERSION=6.8.0
-ENV SURF_VERSION=2.3.0
+ENV SURF_VERSION=2.3.1
 
 ENV COMPOSER_HOME=/app/.composer
 
@@ -102,6 +97,7 @@ RUN set -e -u -x \
     && composer global require --no-ansi --no-progress --update-no-dev --ignore-platform-reqs \
         typo3/surf:${SURF_VERSION} \
         deployer/deployer:${DEPLOYER_VERSION} \
+        michielroos/typo3scan:${TYPO3SCAN_VERSION} \
     && rm -rf $(composer config -g -q cache-dir)
 
 RUN set -e -u -x \
