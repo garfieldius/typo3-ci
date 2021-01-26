@@ -58,7 +58,7 @@ RUN set -e -u -x \
        libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 \
        libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils
 
-ENV PHP_VERSION=7.4.13
+ENV PHP_VERSION=7.4.14
 ENV PHP_BRANCH=7.4
 
 RUN set -e -u -x \

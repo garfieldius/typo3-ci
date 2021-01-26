@@ -59,7 +59,7 @@ RUN set -e -u -x \
         libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 \
         libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils
 
-ENV PHP_VERSION=7.3.25
+ENV PHP_VERSION=7.3.26
 ENV PHP_BRANCH=7.3
 
 RUN set -e -u -x \
@@ -90,7 +90,7 @@ USER app
 
 ENV TYPO3SCAN_VERSION=1.7.2
 ENV DEPLOYER_VERSION=6.8.0
-ENV SURF_VERSION=2.3.0
+ENV SURF_VERSION=2.3.1
 
 ENV COMPOSER_HOME=/app/.composer
 
