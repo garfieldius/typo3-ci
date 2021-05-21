@@ -37,4 +37,5 @@ jobs:
             --pull \
             --push \
             --tag garfieldius/typo3-ci:${{ matrix.combo }} \
-            --platform linux/amd64,linux/arm64 .
+            --platform linux/amd64,linux/arm64 \
+            ./${{ matrix.combo }}
