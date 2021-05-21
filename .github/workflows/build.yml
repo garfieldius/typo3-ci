@@ -1,0 +1,40 @@
+name: build images
+
+on:
+  push:
+    branches: master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        combo:
+          - 'php7.2-node12'
+          - 'php7.2-node10'
+          - 'php7.3-node12'
+          - 'php7.3-node10'
+          - 'php7.4-node10'
+          - 'php7.4-node14'
+          - 'php8.0-node10'
+          - 'php8.0-node14'
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: build the image
+        run: |
+          echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login --username garfieldius --password-stdin
+          docker buildx build \
+            --pull \
+            --push \
+            --tag garfieldius/typo3-ci:${{ matrix.combo }} \
+            --platform linux/amd64,linux/arm64 .

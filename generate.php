@@ -74,6 +74,9 @@ $targets = [];
 
 $baseDir = realpath(__DIR__) . DIRECTORY_SEPARATOR;
 
+$oldWorkflow = file_get_contents($baseDir . '.github/workflows/build.yml');
+$newWorkflow = substr($oldWorkflow, 0, strpos($oldWorkflow, 'combo:') + 7);
+
 exec("rm -rf ${baseDir}php*");
 
 foreach ($images as $image => $versions) {
@@ -86,6 +89,8 @@ foreach ($images as $image => $versions) {
             $nodeMajor = array_shift($nodeVersionParts);
 
             $tag = 'php' . $php . '-node' . $nodeMajor;
+
+            $newWorkflow .= "          - '$tag'\n";
 
             exec("cp -a ${baseDir}template-${image} ${baseDir}${tag}");
             exec("mv ${baseDir}${tag}/Dockerfile.tmpl ${baseDir}${tag}/Dockerfile");
@@ -128,3 +133,6 @@ foreach ($images as $image => $versions) {
 }
 
 file_put_contents($baseDir . 'Makefile', sprintf($tmplFile, implode(' ', $defaults), implode("\n\n", $targets), implode('', $cleans)));
+
+$newWorkflow .= "\n" . substr($oldWorkflow, strpos($oldWorkflow, '    steps:'));
+file_put_contents($baseDir . '.github/workflows/build.yml', $newWorkflow);
