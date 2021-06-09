@@ -35,10 +35,8 @@ RUN set -e -u -x \
     && apt update -y \
     && apt install -y curl gnupg software-properties-common apt-transport-https ca-certificates \
     \
-    && curl -fsSLo docker.key https://download.docker.com/linux/ubuntu/gpg \
-    && apt-key add docker.key \
-    && rm -f docker.key \
-    && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" -y \
+    && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg \
+    && echo "deb [arch=$(uname -p | sed 's,x86_,amd,g' | sed 's,aarch,arm,g') signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu focal stable" > /etc/apt/sources.list.d/docker.list \
     && add-apt-repository ppa:ondrej/php -y \
     && add-apt-repository ppa:git-core/ppa -y \
     \
@@ -64,19 +62,21 @@ ENV PHP_BRANCH=7.4
 RUN set -e -u -x \
     && apt-cmd install -y \
         php${PHP_BRANCH}-cli php${PHP_BRANCH}-curl php${PHP_BRANCH}-mbstring php${PHP_BRANCH}-zip php${PHP_BRANCH}-xml php${PHP_BRANCH}-soap \
-        php${PHP_BRANCH}-json php${PHP_BRANCH}-bz2 php${PHP_BRANCH}-intl php${PHP_BRANCH}-gd php${PHP_BRANCH}-mysql php${PHP_BRANCH}-sqlite3
+        php${PHP_BRANCH}-json php${PHP_BRANCH}-bz2 php${PHP_BRANCH}-intl php${PHP_BRANCH}-gd php${PHP_BRANCH}-mysql php${PHP_BRANCH}-sqlite3 \
+    && php -v
 
 ENV NODE_VERSION=14.17.0
 
 RUN set -e -u -x \
-    && curl -sSLo node.tar.xz https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz \
+    && curl -fsSLo node.tar.xz https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-$(uname -p | sed 's,86_,,g' | sed 's,aarch,arm,g').tar.xz \
     && tar -x -J -C /usr/local --strip-components=1 -f node.tar.xz \
-    && rm -f node.tar.xz
+    && rm -f node.tar.xz \
+    && node -v
 
 ENV YARN_VERSION=1.22.10
 
 RUN set -e -u -x \
-    && curl -sSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
+    && curl -fsSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
     && chmod +x /usr/local/bin/yarn
 
 ENV COMPOSER_VERSION=2.0.13
