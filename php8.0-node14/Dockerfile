@@ -56,7 +56,7 @@ RUN set -e -u -x \
        libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 \
        libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils
 
-ENV PHP_VERSION=8.0.6
+ENV PHP_VERSION=8.0.7
 ENV PHP_BRANCH=8.0
 
 RUN set -e -u -x \
@@ -79,7 +79,7 @@ RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
     && chmod +x /usr/local/bin/yarn
 
-ENV COMPOSER_VERSION=2.0.13
+ENV COMPOSER_VERSION=2.1.2
 
 RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/composer https://getcomposer.org/download/${COMPOSER_VERSION}/composer.phar \
