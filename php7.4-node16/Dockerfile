@@ -7,7 +7,7 @@
 # For the full copyright and license information see
 # <https://www.apache.org/licenses/LICENSE-2.0>
 
-FROM ubuntu:bionic
+FROM ubuntu:focal
 
 RUN set -e -x \
     && mkdir /app \
@@ -36,10 +36,9 @@ RUN set -e -u -x \
     && apt install -y curl gnupg software-properties-common apt-transport-https ca-certificates \
     \
     && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg \
-    && echo "deb [arch=$(uname -p | sed 's,x86_,amd,g' | sed 's,aarch,arm,g') signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu bionic stable" > /etc/apt/sources.list.d/docker.list \
+    && echo "deb [arch=$(uname -p | sed 's,x86_,amd,g' | sed 's,aarch,arm,g') signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu focal stable" > /etc/apt/sources.list.d/docker.list \
     && add-apt-repository ppa:ondrej/php -y \
     && add-apt-repository ppa:git-core/ppa -y \
-    && add-apt-repository ppa:ansible/ansible -y \
     \
     && apt update -y \
     && apt full-upgrade -y \
@@ -51,14 +50,14 @@ RUN set -e -u -x \
 
 RUN set -e -u -x \
     && apt-cmd install -y \
-        xvfb gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 \
-        libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 \
-        libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 \
-        libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 \
-        libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils
+       xvfb gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 \
+       libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 \
+       libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 \
+       libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 \
+       libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils
 
-ENV PHP_VERSION=7.3.29
-ENV PHP_BRANCH=7.3
+ENV PHP_VERSION=7.4.22
+ENV PHP_BRANCH=7.4
 
 RUN set -e -u -x \
     && apt-cmd install -y \
@@ -66,7 +65,7 @@ RUN set -e -u -x \
         php${PHP_BRANCH}-json php${PHP_BRANCH}-bz2 php${PHP_BRANCH}-intl php${PHP_BRANCH}-gd php${PHP_BRANCH}-mysql php${PHP_BRANCH}-sqlite3 \
     && php -v
 
-ENV NODE_VERSION=10.24.1
+ENV NODE_VERSION=16.6.1
 
 RUN set -e -u -x \
     && curl -fsSLo node.tar.xz https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-$(uname -p | sed 's,86_,,g' | sed 's,aarch,arm,g').tar.xz \
