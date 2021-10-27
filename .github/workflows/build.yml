@@ -11,10 +11,12 @@ jobs:
     strategy:
       matrix:
         combo:
-          - 'php7.2-node12'
           - 'php7.2-node10'
-          - 'php7.3-node12'
+          - 'php7.2-node12'
+          - 'php7.2-node14'
           - 'php7.3-node10'
+          - 'php7.3-node12'
+          - 'php7.3-node14'
           - 'php7.4-node10'
           - 'php7.4-node14'
           - 'php7.4-node16'

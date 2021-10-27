@@ -66,7 +66,7 @@ RUN set -e -u -x \
         php${PHP_BRANCH}-json php${PHP_BRANCH}-bz2 php${PHP_BRANCH}-intl php${PHP_BRANCH}-gd php${PHP_BRANCH}-mysql php${PHP_BRANCH}-sqlite3 \
     && php -v
 
-ENV NODE_VERSION=12.22.6
+ENV NODE_VERSION=12.22.7
 
 RUN set -e -u -x \
     && curl -fsSLo node.tar.xz https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-$(uname -p | sed 's,86_,,g' | sed 's,aarch,arm,g').tar.xz \
