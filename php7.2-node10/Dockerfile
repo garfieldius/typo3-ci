@@ -80,7 +80,7 @@ RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
     && chmod +x /usr/local/bin/yarn
 
-ENV COMPOSER_VERSION=2.1.8
+ENV COMPOSER_VERSION=2.1.11
 
 RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/composer https://getcomposer.org/download/${COMPOSER_VERSION}/composer.phar \
@@ -88,7 +88,7 @@ RUN set -e -u -x \
 
 USER app
 
-ENV TYPO3SCAN_VERSION=1.7.2
+ENV TYPO3SCAN_VERSION=1.7.3
 ENV DEPLOYER_VERSION=6.8.0
 ENV SURF_VERSION=2.3.2
 
