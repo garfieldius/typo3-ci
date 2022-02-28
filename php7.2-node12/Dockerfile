@@ -66,7 +66,7 @@ RUN set -e -u -x \
         php${PHP_BRANCH}-json php${PHP_BRANCH}-bz2 php${PHP_BRANCH}-intl php${PHP_BRANCH}-gd php${PHP_BRANCH}-mysql php${PHP_BRANCH}-sqlite3 \
     && php -v
 
-ENV NODE_VERSION=12.22.8
+ENV NODE_VERSION=12.22.10
 
 RUN set -e -u -x \
     && curl -fsSLo node.tar.xz https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-$(uname -p | sed 's,86_,,g' | sed 's,aarch,arm,g').tar.xz \
@@ -80,7 +80,7 @@ RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
     && chmod +x /usr/local/bin/yarn
 
-ENV COMPOSER_VERSION=2.1.14
+ENV COMPOSER_VERSION=2.2.7
 
 RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/composer https://getcomposer.org/download/${COMPOSER_VERSION}/composer.phar \
@@ -90,7 +90,7 @@ USER app
 
 ENV TYPO3SCAN_VERSION=1.7.3
 ENV DEPLOYER_VERSION=6.8.0
-ENV SURF_VERSION=2.4.0
+ENV SURF_VERSION=3.0.1
 
 ENV COMPOSER_HOME=/app/.composer
 
