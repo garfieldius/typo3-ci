@@ -56,8 +56,8 @@ RUN set -e -u -x \
        libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 \
        libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils
 
-ENV PHP_VERSION=8.1.3
-ENV PHP_BRANCH=8.1
+ENV PHP_VERSION=8.0.16
+ENV PHP_BRANCH=8.0
 
 RUN set -e -u -x \
     && apt-cmd install -y \
@@ -65,7 +65,7 @@ RUN set -e -u -x \
         php${PHP_BRANCH}-bz2 php${PHP_BRANCH}-intl php${PHP_BRANCH}-gd php${PHP_BRANCH}-mysql php${PHP_BRANCH}-sqlite3 \
     && php -v
 
-ENV NODE_VERSION=10.24.1
+ENV NODE_VERSION=18.3.0
 
 RUN set -e -u -x \
     && curl -fsSLo node.tar.xz https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-$(uname -p | sed 's,86_,,g' | sed 's,aarch,arm,g').tar.xz \
