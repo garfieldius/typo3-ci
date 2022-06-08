@@ -74,7 +74,7 @@ RUN set -e -u -x \
     && rm -f node.tar.xz \
     && node -v
 
-ENV YARN_VERSION=1.22.17
+ENV YARN_VERSION=1.22.19
 
 RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \

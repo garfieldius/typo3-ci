@@ -7,7 +7,7 @@
 # For the full copyright and license information see
 # <https://www.apache.org/licenses/LICENSE-2.0>
 
-FROM ubuntu:focal
+FROM ubuntu:jammy
 
 RUN set -e -x \
     && mkdir /app \
@@ -36,7 +36,7 @@ RUN set -e -u -x \
     && apt install -y curl gnupg software-properties-common apt-transport-https ca-certificates \
     \
     && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg \
-    && echo "deb [arch=$(uname -p | sed 's,x86_,amd,g' | sed 's,aarch,arm,g') signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu focal stable" > /etc/apt/sources.list.d/docker.list \
+    && echo "deb [arch=$(uname -p | sed 's,x86_,amd,g' | sed 's,aarch,arm,g') signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu jammy stable" > /etc/apt/sources.list.d/docker.list \
     && add-apt-repository ppa:ondrej/php -y \
     && add-apt-repository ppa:git-core/ppa -y \
     \
@@ -73,13 +73,13 @@ RUN set -e -u -x \
     && rm -f node.tar.xz \
     && node -v
 
-ENV YARN_VERSION=1.22.17
+ENV YARN_VERSION=1.22.19
 
 RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
     && chmod +x /usr/local/bin/yarn
 
-ENV COMPOSER_VERSION=2.2.7
+ENV COMPOSER_VERSION=2.3.7
 
 RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/composer https://getcomposer.org/download/${COMPOSER_VERSION}/composer.phar \
