@@ -25,6 +25,7 @@ jobs:
           - 'php8.0-node14'
           - 'php8.0-node16'
           - 'php8.0-node18'
+          - 'php8.1-node14'
           - 'php8.1-node16'
           - 'php8.1-node18'
 
