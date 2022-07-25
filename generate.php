@@ -46,7 +46,7 @@ $images = [
 
 $tmplBuild = '.PHONY: %1$s
 %1$s:
-	@docker buildx build --tag $(IMAGE_TAG):%2$s --platform linux/amd64,linux/arm64 --progress plain $(BUILD_ARG) ./%1$s/.';
+	@docker buildx build --tag $(IMAGE_TAG):%2$s --platform linux/amd64 --progress plain $(BUILD_ARG) ./%1$s/.';
 
 $tmplClean = "	@docker rmi $(IMAGE_TAG):%s\n";
 
