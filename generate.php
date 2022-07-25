@@ -2,7 +2,7 @@
 <?php
 
 /*
- * This file is (c) 2020 by Georg Großberger
+ * This file is (c) 2022 by Georg Großberger
  *
  * It is free software; you can redistribute it and/or
  * modify it under the terms of the Apache License 2.0
@@ -20,6 +20,7 @@ $images = [
         'deployer' => '6.8.0',
         'typo3scan' => '1.7.3',
         'surf' => '2.4.0',
+        'surfphar' => '3.3.4',
     ],
     'focal' => [
         'php' => ['7.4.30', '8.0.21'],
@@ -29,6 +30,7 @@ $images = [
         'deployer' => '6.8.0',
         'typo3scan' => '1.7.3',
         'surf' => '2.4.0',
+        'surfphar' => '3.3.4',
     ],
     'jammy' => [
         'php' => ['8.1.8'],
@@ -38,6 +40,7 @@ $images = [
         'deployer' => '6.8.0',
         'typo3scan' => '1.7.3',
         'surf' => '2.4.0',
+        'surfphar' => '3.3.4',
     ],
 ];
 
@@ -49,7 +52,7 @@ $tmplClean = "	@docker rmi $(IMAGE_TAG):%s\n";
 
 $tmplFile = '
 
-# This file is (c) 2020 by Georg Großberger
+# This file is (c) 2022 by Georg Großberger
 #
 # It is free software; you can redistribute it and/or
 # modify it under the terms of the Apache License 2.0
@@ -122,6 +125,7 @@ foreach ($images as $image => $versions) {
                 'DEPLOYER_VERSION' => $versions['deployer'],
                 'TYPO3SCAN_VERSION' => $versions['typo3scan'],
                 'SURF_VERSION' => $versions['surf'],
+                'SURFPHAR_VERSION' => $versions['surfphar'],
             ];
 
             foreach ($markers as $name => $value) {

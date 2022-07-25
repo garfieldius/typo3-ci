@@ -1,5 +1,5 @@
 
-# This file is (c) 2020 by Georg Großberger
+# This file is (c) 2022 by Georg Großberger
 #
 # It is free software; you can redistribute it and/or
 # modify it under the terms of the Apache License 2.0
@@ -85,6 +85,12 @@ RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/composer https://getcomposer.org/download/${COMPOSER_VERSION}/composer.phar \
     && chmod +x /usr/local/bin/composer
 
+ENV SURF_NEXT_VERSION=3.3.4
+
+RUN set -e -u -x \
+    && curl -fsSLo /usr/local/bin/surf3 https://github.com/TYPO3/Surf/releases/download/${SURF_NEXT_VERSION}/surf.phar \
+    && chmod +x /usr/local/bin/surf3
+
 USER app
 
 ENV TYPO3SCAN_VERSION=1.7.3
@@ -101,7 +107,8 @@ RUN set -e -u -x \
     && rm -rf $(composer config -g -q cache-dir)
 
 RUN set -e -u -x \
-    && yarn global add grunt-cli gulp-cli cross-env backstopjs \
+    && yarn global add grunt-cli gulp-cli cross-env \
+    && { [ "14.1.0" != "$(printf '14.20.0\n14.1.0\n' | sort -V | tail -n 1)" ] && yarn global add backstopjs || echo 'node version too old for backstopjs, skipping'; } \
     && rm -rf $(yarn cache dir)
 
 ENV PATH=/app/.config/yarn/global/node_modules/.bin:/app/.composer/vendor/bin:/app/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin

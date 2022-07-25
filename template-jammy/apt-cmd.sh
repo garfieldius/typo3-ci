@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This file is (c) 2020 by Georg Großberger
+# This file is (c) 2022 by Georg Großberger
 #
 # It is free software; you can redistribute it and/or
 # modify it under the terms of the Apache License 2.0
