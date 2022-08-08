@@ -46,7 +46,7 @@ $images = [
 
 $tmplBuild = '.PHONY: %1$s
 %1$s:
-	@docker buildx build --tag $(IMAGE_TAG):%2$s --platform linux/amd64 --progress plain $(BUILD_ARG) ./%1$s/.';
+	@docker build --tag $(IMAGE_TAG):%2$s ./%1$s/.';
 
 $tmplClean = "	@docker rmi $(IMAGE_TAG):%s\n";
 
@@ -61,15 +61,9 @@ $tmplFile = '
 # <https://www.apache.org/licenses/LICENSE-2.0>
 
 IMAGE_TAG ?= garfieldius/typo3-ci
-BUILD_ARG ?= --pull
 
 .PHONY: default
 default: %s
-
-.PHONY: setup-builder
-setup-builder:
-	@docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
-	@docker buildx create --name multiarch --driver docker-container --use
 
 %s
 
