@@ -111,6 +111,6 @@ RUN set -e -u -x \
     && { [ "14.1.0" != "$(printf '16.16.0\n14.1.0\n' | sort -V | tail -n 1)" ] && yarn global add backstopjs || echo 'node version too old for backstopjs, skipping'; } \
     && rm -rf $(yarn cache dir)
 
-ENV PATH=/app/.config/yarn/global/node_modules/.bin:/app/.composer/vendor/bin:/app/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENV PATH=/app/.yarn/bin:/app/.composer/vendor/bin:/app/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 CMD ["/bin/bash"]
