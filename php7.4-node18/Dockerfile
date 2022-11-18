@@ -64,6 +64,7 @@ RUN set -e -u -x \
     && apt-cmd install -y \
         php${PHP_BRANCH}-cli php${PHP_BRANCH}-curl php${PHP_BRANCH}-mbstring php${PHP_BRANCH}-zip php${PHP_BRANCH}-xml php${PHP_BRANCH}-soap \
         php${PHP_BRANCH}-json php${PHP_BRANCH}-bz2 php${PHP_BRANCH}-intl php${PHP_BRANCH}-gd php${PHP_BRANCH}-mysql php${PHP_BRANCH}-sqlite3 \
+        php${PHP_BRANCH}-ldap \
     && php -v
 
 ENV NODE_VERSION=18.10.0
