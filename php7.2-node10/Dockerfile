@@ -44,7 +44,7 @@ RUN set -e -u -x \
     && apt update -y \
     && apt full-upgrade -y \
     && apt install -y gcc g++ make openssl jq wget less docker-ce-cli ansible \
-           rsync xz-utils openssh-client git zip unzip mysql-client default-jre-headless patch \
+           rsync xz-utils openssh-client git zip unzip mysql-client default-jre-headless patch brotli \
     \
     && apt-cmd purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
         software-properties-common apt-transport-https
