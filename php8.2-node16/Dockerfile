@@ -57,7 +57,7 @@ RUN set -e -u -x \
        libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 \
        libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils libgbm1
 
-ENV PHP_VERSION=8.2.1
+ENV PHP_VERSION=8.2.5
 ENV PHP_BRANCH=8.2
 
 RUN set -e -u -x \
@@ -67,7 +67,7 @@ RUN set -e -u -x \
         php${PHP_BRANCH}-ldap \
     && php -v
 
-ENV NODE_VERSION=16.19.0
+ENV NODE_VERSION=16.20.0
 
 RUN set -e -u -x \
     && curl -fsSLo node.tar.xz https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-$(uname -p | sed 's,86_,,g' | sed 's,aarch,arm,g').tar.xz \
@@ -81,13 +81,13 @@ RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
     && chmod +x /usr/local/bin/yarn
 
-ENV COMPOSER_VERSION=2.5.1
+ENV COMPOSER_VERSION=2.5.5
 
 RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/composer https://getcomposer.org/download/${COMPOSER_VERSION}/composer.phar \
     && chmod +x /usr/local/bin/composer
 
-ENV SURF_NEXT_VERSION=3.3.5
+ENV SURF_NEXT_VERSION=3.3.15
 
 RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/surf3 https://github.com/TYPO3/Surf/releases/download/${SURF_NEXT_VERSION}/surf.phar \
@@ -110,7 +110,7 @@ RUN set -e -u -x \
 
 RUN set -e -u -x \
     && yarn global add grunt-cli gulp-cli cross-env \
-    && { [ "14.1.0" != "$(printf '16.19.0\n14.1.0\n' | sort -V | tail -n 1)" ] && yarn global add backstopjs || echo 'node version too old for backstopjs, skipping'; } \
+    && { [ "14.1.0" != "$(printf '16.20.0\n14.1.0\n' | sort -V | tail -n 1)" ] && yarn global add backstopjs || echo 'node version too old for backstopjs, skipping'; } \
     && rm -rf $(yarn cache dir)
 
 ENV PATH=/app/.yarn/bin:/app/.composer/vendor/bin:/app/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
