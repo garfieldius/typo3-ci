@@ -88,7 +88,7 @@ RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/composer https://getcomposer.org/download/${COMPOSER_VERSION}/composer.phar \
     && chmod +x /usr/local/bin/composer
 
-ENV SURF_NEXT_VERSION=3.3.15
+ENV SURF_NEXT_VERSION=3.4.0
 
 RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/surf3 https://github.com/TYPO3/Surf/releases/download/${SURF_NEXT_VERSION}/surf.phar \

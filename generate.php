@@ -20,7 +20,7 @@ $images = [
         'deployer' => '6.8.0',
         'typo3scan' => '1.7.3',
         'surf' => '2.4.0',
-        'surfphar' => '3.3.15',
+        'surfphar' => '3.4.0',
     ],
     'focal' => [
         'php' => ['7.4.33', '8.0.28'],
@@ -30,7 +30,7 @@ $images = [
         'deployer' => '6.8.0',
         'typo3scan' => '1.7.3',
         'surf' => '2.4.0',
-        'surfphar' => '3.3.15',
+        'surfphar' => '3.4.0',
     ],
     'jammy' => [
         'php' => ['8.1.18', '8.2.5'],
@@ -40,7 +40,7 @@ $images = [
         'deployer' => '6.8.0',
         'typo3scan' => '1.7.3',
         'surf' => '2.4.0',
-        'surfphar' => '3.3.15',
+        'surfphar' => '3.4.0',
     ],
 ];
 
