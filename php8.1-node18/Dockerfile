@@ -57,7 +57,7 @@ RUN set -e -u -x \
        libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 \
        libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils libgbm1
 
-ENV PHP_VERSION=8.1.18
+ENV PHP_VERSION=8.1.23
 ENV PHP_BRANCH=8.1
 
 RUN set -e -u -x \
@@ -81,13 +81,13 @@ RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
     && chmod +x /usr/local/bin/yarn
 
-ENV COMPOSER_VERSION=2.5.5
+ENV COMPOSER_VERSION=2.6.2
 
 RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/composer https://getcomposer.org/download/${COMPOSER_VERSION}/composer.phar \
     && chmod +x /usr/local/bin/composer
 
-ENV SURF_NEXT_VERSION=3.4.0
+ENV SURF_NEXT_VERSION=3.4.3
 
 RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/surf3 https://github.com/TYPO3/Surf/releases/download/${SURF_NEXT_VERSION}/surf.phar \

@@ -11,38 +11,50 @@
  * <https://www.apache.org/licenses/LICENSE-2.0>
  */
 
+$php80 = '8.0.30';
+$php81 = '8.1.23';
+$php82 = '8.2.10';
+
+$node10 = '10.24.1';
+$node12 = '12.22.12';
+$node14 = '14.21.3';
+$node16 = '16.20.2';
 $node18 = '18.16.0';
+$node20 = '20.6.1';
+
+$composer2 = '2.6.2';
+$surf3 = '3.4.3';
 
 $images = [
     'bionic' => [
         'php' => ['7.2.34', '7.3.33'],
-        'node' => ['10.24.1', '12.22.12', '14.21.3', $node18],
+        'node' => [$node10, $node12, $node14, $node18],
         'yarn' => '1.22.19',
-        'composer' => '2.5.5',
+        'composer' => $composer2,
         'deployer' => '6.8.0',
         'typo3scan' => '1.7.3',
         'surf' => '2.4.0',
-        'surfphar' => '3.4.0',
+        'surfphar' => $surf3,
     ],
     'focal' => [
-        'php' => ['7.4.33', '8.0.28'],
-        'node' => ['10.24.1', '14.21.3', '16.20.0', $node18],
+        'php' => ['7.4.33', $php80],
+        'node' => [$node10, $node14, $node16, $node18],
         'yarn' => '1.22.19',
-        'composer' => '2.5.5',
+        'composer' => $composer2,
         'deployer' => '6.8.0',
         'typo3scan' => '1.7.3',
         'surf' => '2.4.0',
-        'surfphar' => '3.4.0',
+        'surfphar' => $surf3,
     ],
     'jammy' => [
-        'php' => ['8.1.18', '8.2.5'],
-        'node' => ['14.21.3', '16.20.0', $node18, '20.1.0'],
+        'php' => [$php81, $php82],
+        'node' => [$node14, $node16, $node18, $node20],
         'yarn' => '1.22.19',
-        'composer' => '2.5.5',
+        'composer' => $composer2,
         'deployer' => '6.8.0',
         'typo3scan' => '1.7.3',
         'surf' => '2.4.0',
-        'surfphar' => '3.4.0',
+        'surfphar' => $surf3,
     ],
 ];
 
