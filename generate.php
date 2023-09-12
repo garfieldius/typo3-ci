@@ -28,7 +28,7 @@ $surf3 = '3.4.3';
 $images = [
     'bionic' => [
         'php' => ['7.2.34', '7.3.33'],
-        'node' => [$node10, $node12, $node14, $node18],
+        'node' => [$node10, $node12, $node14],
         'yarn' => '1.22.19',
         'composer' => $composer2,
         'deployer' => '6.8.0',
@@ -60,7 +60,7 @@ $images = [
 
 $tmplBuild = '.PHONY: %1$s
 %1$s:
-	@docker build --tag $(IMAGE_TAG):%2$s ./%1$s/.';
+	@docker build --progress plain --tag $(IMAGE_TAG):%2$s ./%1$s/.';
 
 $tmplClean = "	@docker rmi $(IMAGE_TAG):%s\n";
 
