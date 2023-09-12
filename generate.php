@@ -11,10 +11,12 @@
  * <https://www.apache.org/licenses/LICENSE-2.0>
  */
 
+$node18 = '18.16.0';
+
 $images = [
     'bionic' => [
         'php' => ['7.2.34', '7.3.33'],
-        'node' => ['10.24.1', '12.22.12', '14.21.3'],
+        'node' => ['10.24.1', '12.22.12', '14.21.3', $node18],
         'yarn' => '1.22.19',
         'composer' => '2.5.5',
         'deployer' => '6.8.0',
@@ -24,7 +26,7 @@ $images = [
     ],
     'focal' => [
         'php' => ['7.4.33', '8.0.28'],
-        'node' => ['10.24.1', '14.21.3', '16.20.0', '18.16.0'],
+        'node' => ['10.24.1', '14.21.3', '16.20.0', $node18],
         'yarn' => '1.22.19',
         'composer' => '2.5.5',
         'deployer' => '6.8.0',
@@ -34,7 +36,7 @@ $images = [
     ],
     'jammy' => [
         'php' => ['8.1.18', '8.2.5'],
-        'node' => ['14.21.3', '16.20.0', '18.16.0', '20.1.0'],
+        'node' => ['14.21.3', '16.20.0', $node18, '20.1.0'],
         'yarn' => '1.22.19',
         'composer' => '2.5.5',
         'deployer' => '6.8.0',
@@ -89,7 +91,7 @@ $baseDir = realpath(__DIR__) . DIRECTORY_SEPARATOR;
 $oldWorkflow = file_get_contents($baseDir . '.github/workflows/build.yml');
 $newWorkflow = substr($oldWorkflow, 0, strpos($oldWorkflow, 'combo:') + 7);
 
-exec("rm -rf ${baseDir}php*");
+exec("rm -rf {$baseDir}php*");
 
 foreach ($images as $image => $versions) {
     foreach ($versions['php'] as $php) {
@@ -104,8 +106,8 @@ foreach ($images as $image => $versions) {
 
             $newWorkflow .= "          - '$tag'\n";
 
-            exec("cp -a ${baseDir}template-${image} ${baseDir}${tag}");
-            exec("mv ${baseDir}${tag}/Dockerfile.tmpl ${baseDir}${tag}/Dockerfile");
+            exec("cp -a {$baseDir}template-{$image} {$baseDir}{$tag}");
+            exec("mv {$baseDir}{$tag}/Dockerfile.tmpl {$baseDir}{$tag}/Dockerfile");
 
             $dockerfilePath = $baseDir . $tag . DIRECTORY_SEPARATOR . 'Dockerfile';
             $dockerfileContent = file_get_contents($dockerfilePath);
