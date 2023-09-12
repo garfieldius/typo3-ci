@@ -27,7 +27,7 @@ $surf3 = '3.4.3';
 
 $images = [
     'bionic' => [
-        'php' => ['7.2.34', '7.3.33'],
+        'php' => ['7.2.34'],
         'node' => [$node10, $node12, $node14],
         'yarn' => '1.22.19',
         'composer' => $composer2,

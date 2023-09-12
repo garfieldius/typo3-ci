@@ -11,7 +11,7 @@
 IMAGE_TAG ?= garfieldius/typo3-ci
 
 .PHONY: default
-default: php7.2-node10 php7.2-node12 php7.2-node14 php7.3-node10 php7.3-node12 php7.3-node14 php7.4-node10 php7.4-node14 php7.4-node16 php7.4-node18 php8.0-node10 php8.0-node14 php8.0-node16 php8.0-node18 php8.1-node14 php8.1-node16 php8.1-node18 php8.1-node20 php8.2-node14 php8.2-node16 php8.2-node18 php8.2-node20
+default: php7.2-node10 php7.2-node12 php7.2-node14 php7.4-node10 php7.4-node14 php7.4-node16 php7.4-node18 php8.0-node10 php8.0-node14 php8.0-node16 php8.0-node18 php8.1-node14 php8.1-node16 php8.1-node18 php8.1-node20 php8.2-node14 php8.2-node16 php8.2-node18 php8.2-node20
 
 .PHONY: php7.2-node10
 php7.2-node10:
@@ -24,18 +24,6 @@ php7.2-node12:
 .PHONY: php7.2-node14
 php7.2-node14:
 	@docker build --progress plain --tag $(IMAGE_TAG):php7.2-node14 ./php7.2-node14/.
-
-.PHONY: php7.3-node10
-php7.3-node10:
-	@docker build --progress plain --tag $(IMAGE_TAG):php7.3-node10 ./php7.3-node10/.
-
-.PHONY: php7.3-node12
-php7.3-node12:
-	@docker build --progress plain --tag $(IMAGE_TAG):php7.3-node12 ./php7.3-node12/.
-
-.PHONY: php7.3-node14
-php7.3-node14:
-	@docker build --progress plain --tag $(IMAGE_TAG):php7.3-node14 ./php7.3-node14/.
 
 .PHONY: php7.4-node10
 php7.4-node10:
@@ -110,9 +98,6 @@ clean:
 	@docker rmi $(IMAGE_TAG):php7.2-node10
 	@docker rmi $(IMAGE_TAG):php7.2-node12
 	@docker rmi $(IMAGE_TAG):php7.2-node14
-	@docker rmi $(IMAGE_TAG):php7.3-node10
-	@docker rmi $(IMAGE_TAG):php7.3-node12
-	@docker rmi $(IMAGE_TAG):php7.3-node14
 	@docker rmi $(IMAGE_TAG):php7.4-node10
 	@docker rmi $(IMAGE_TAG):php7.4-node14
 	@docker rmi $(IMAGE_TAG):php7.4-node16
