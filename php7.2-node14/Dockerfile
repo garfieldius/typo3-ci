@@ -61,12 +61,19 @@ RUN set -e -u -x \
 ENV PHP_VERSION=7.2.34
 ENV PHP_BRANCH=7.2
 
+ADD enable-xdebug.sh /bin/enable-xdebug
+ADD disable-xdebug.sh /bin/disable-xdebug
+
 RUN set -e -u -x \
     && apt-cmd install -y \
         php${PHP_BRANCH}-cli php${PHP_BRANCH}-curl php${PHP_BRANCH}-mbstring php${PHP_BRANCH}-zip php${PHP_BRANCH}-xml php${PHP_BRANCH}-soap \
         php${PHP_BRANCH}-json php${PHP_BRANCH}-bz2 php${PHP_BRANCH}-intl php${PHP_BRANCH}-gd php${PHP_BRANCH}-mysql php${PHP_BRANCH}-sqlite3 \
         php${PHP_BRANCH}-ldap php${PHP_BRANCH}-xdebug \
-    && php -v
+    && php -v \
+    && chmod 0666 /etc/php/${PHP_BRANCH}/mods-available/xdebug.ini \
+    && chmod 0755 /bin/enable-xdebug \
+    && chmod 0755 /bin/disable-xdebug \
+    && /bin/disable-xdebug
 
 ENV NODE_VERSION=14.21.3
 
