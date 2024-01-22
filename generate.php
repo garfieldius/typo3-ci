@@ -14,6 +14,7 @@
 $php80 = '8.0.30';
 $php81 = '8.1.27';
 $php82 = '8.2.15';
+$php83 = '8.3.2';
 
 $node10 = '10.24.1';
 $node12 = '12.22.12';
@@ -47,7 +48,7 @@ $images = [
         'surfphar' => $surf3,
     ],
     'jammy' => [
-        'php' => [$php81, $php82],
+        'php' => [$php81, $php82, $php83],
         'node' => [$node14, $node16, $node18, $node20],
         'yarn' => '1.22.19',
         'composer' => $composer2,
