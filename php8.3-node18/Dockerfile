@@ -57,7 +57,7 @@ RUN set -e -u -x \
        libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 \
        libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils libgbm1
 
-ENV PHP_VERSION=8.3.2
+ENV PHP_VERSION=8.3.7
 ENV PHP_BRANCH=8.3
 
 ADD enable-xdebug.sh /bin/enable-xdebug
@@ -74,7 +74,7 @@ RUN set -e -u -x \
     && chmod 0755 /bin/disable-xdebug \
     && /bin/disable-xdebug
 
-ENV NODE_VERSION=18.19.0
+ENV NODE_VERSION=18.20.2
 
 RUN set -e -u -x \
     && curl -fsSLo node.tar.xz https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-$(uname -p | sed 's,86_,,g' | sed 's,aarch,arm,g').tar.xz \
@@ -88,7 +88,7 @@ RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
     && chmod +x /usr/local/bin/yarn
 
-ENV COMPOSER_VERSION=2.6.6
+ENV COMPOSER_VERSION=2.7.6
 
 RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/composer https://getcomposer.org/download/${COMPOSER_VERSION}/composer.phar \
@@ -117,7 +117,7 @@ RUN set -e -u -x \
 
 RUN set -e -u -x \
     && yarn global add grunt-cli gulp-cli cross-env \
-    && { [ "14.1.0" != "$(printf '18.19.0\n14.1.0\n' | sort -V | tail -n 1)" ] && yarn global add backstopjs || echo 'node version too old for backstopjs, skipping'; } \
+    && { [ "14.1.0" != "$(printf '18.20.2\n14.1.0\n' | sort -V | tail -n 1)" ] && yarn global add backstopjs || echo 'node version too old for backstopjs, skipping'; } \
     && rm -rf $(yarn cache dir)
 
 ENV PATH=/app/.yarn/bin:/app/.composer/vendor/bin:/app/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
