@@ -28,14 +28,17 @@ jobs:
           - 'php8.1-node16'
           - 'php8.1-node18'
           - 'php8.1-node20'
+          - 'php8.1-node22'
           - 'php8.2-node14'
           - 'php8.2-node16'
           - 'php8.2-node18'
           - 'php8.2-node20'
+          - 'php8.2-node22'
           - 'php8.3-node14'
           - 'php8.3-node16'
           - 'php8.3-node18'
           - 'php8.3-node20'
+          - 'php8.3-node22'
 
     steps:
       - name: Checkout

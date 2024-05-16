@@ -22,6 +22,7 @@ $node14 = '14.21.3';
 $node16 = '16.20.2';
 $node18 = '18.20.2';
 $node20 = '20.13.1';
+$node22 = '22.2.0';
 
 $composer2 = '2.7.6';
 $surf3 = '3.4.6';
@@ -49,7 +50,7 @@ $images = [
     ],
     'jammy' => [
         'php' => [$php81, $php82, $php83],
-        'node' => [$node14, $node16, $node18, $node20],
+        'node' => [$node14, $node16, $node18, $node20, $node22],
         'yarn' => '1.22.19',
         'composer' => $composer2,
         'deployer' => '6.8.0',
