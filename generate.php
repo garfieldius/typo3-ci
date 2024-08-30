@@ -12,26 +12,26 @@
  */
 
 $php80 = '8.0.30';
-$php81 = '8.1.28';
-$php82 = '8.2.19';
-$php83 = '8.3.7';
+$php81 = '8.1.29';
+$php82 = '8.2.23';
+$php83 = '8.3.11';
 
 $node10 = '10.24.1';
 $node12 = '12.22.12';
 $node14 = '14.21.3';
 $node16 = '16.20.2';
-$node18 = '18.20.2';
-$node20 = '20.13.1';
-$node22 = '22.2.0';
+$node18 = '18.20.4';
+$node20 = '20.17.0';
+$node22 = '22.7.0';
 
-$composer2 = '2.7.6';
+$composer2 = '2.7.8';
 $surf3 = '3.4.6';
 
 $images = [
     'bionic' => [
         'php' => ['7.2.34'],
         'node' => [$node10, $node12, $node14, $node16],
-        'yarn' => '1.22.19',
+        'yarn' => '1.22.22',
         'composer' => $composer2,
         'deployer' => '6.8.0',
         'typo3scan' => '1.7.3',
@@ -41,7 +41,7 @@ $images = [
     'focal' => [
         'php' => ['7.4.33', $php80],
         'node' => [$node10, $node14, $node16, $node18],
-        'yarn' => '1.22.19',
+        'yarn' => '1.22.22',
         'composer' => $composer2,
         'deployer' => '6.8.0',
         'typo3scan' => '1.7.3',
@@ -51,7 +51,7 @@ $images = [
     'jammy' => [
         'php' => [$php81, $php82, $php83],
         'node' => [$node14, $node16, $node18, $node20, $node22],
-        'yarn' => '1.22.19',
+        'yarn' => '1.22.22',
         'composer' => $composer2,
         'deployer' => '6.8.0',
         'typo3scan' => '1.7.3',

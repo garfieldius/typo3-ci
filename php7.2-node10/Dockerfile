@@ -83,13 +83,13 @@ RUN set -e -u -x \
     && rm -f node.tar.xz \
     && node -v
 
-ENV YARN_VERSION=1.22.19
+ENV YARN_VERSION=1.22.22
 
 RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
     && chmod +x /usr/local/bin/yarn
 
-ENV COMPOSER_VERSION=2.7.6
+ENV COMPOSER_VERSION=2.7.8
 
 RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/composer https://getcomposer.org/download/${COMPOSER_VERSION}/composer.phar \

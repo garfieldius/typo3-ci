@@ -57,7 +57,7 @@ RUN set -e -u -x \
        libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 \
        libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils libgbm1
 
-ENV PHP_VERSION=8.2.19
+ENV PHP_VERSION=8.2.23
 ENV PHP_BRANCH=8.2
 
 ADD enable-xdebug.sh /bin/enable-xdebug
@@ -82,13 +82,13 @@ RUN set -e -u -x \
     && rm -f node.tar.xz \
     && node -v
 
-ENV YARN_VERSION=1.22.19
+ENV YARN_VERSION=1.22.22
 
 RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/yarn https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-${YARN_VERSION}.js \
     && chmod +x /usr/local/bin/yarn
 
-ENV COMPOSER_VERSION=2.7.6
+ENV COMPOSER_VERSION=2.7.8
 
 RUN set -e -u -x \
     && curl -fsSLo /usr/local/bin/composer https://getcomposer.org/download/${COMPOSER_VERSION}/composer.phar \
