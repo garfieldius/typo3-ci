@@ -9,14 +9,33 @@ is required when using them.
 
 ## Available Tags
 
-* [PHP 8.0 / node 14](https://github.com/garfieldius/typo3-ci/blob/master/php8.0-node14/Dockerfile)
-* [PHP 7.4 / node 14](https://github.com/garfieldius/typo3-ci/blob/master/php7.4-node14/Dockerfile)
-
-* [PHP 7.3 / node 12](https://github.com/garfieldius/typo3-ci/blob/master/php7.3-node12/Dockerfile)
-* [PHP 7.2 / node 12](https://github.com/garfieldius/typo3-ci/blob/master/php7.2-node12/Dockerfile)
-
-* [PHP 7.3 / node 10](https://github.com/garfieldius/typo3-ci/blob/master/php7.3-node10/Dockerfile)
-* [PHP 7.2 / node 10](https://github.com/garfieldius/typo3-ci/blob/master/php7.2-node10/Dockerfile)
+[php7.2-node10](./php7.2-node10/Dockedrfile)
+[php7.2-node12](./php7.2-node12/Dockedrfile)
+[php7.2-node14](./php7.2-node14/Dockedrfile)
+[php7.2-node16](./php7.2-node16/Dockedrfile)
+[php7.4-node10](./php7.4-node10/Dockedrfile)
+[php7.4-node14](./php7.4-node14/Dockedrfile)
+[php7.4-node16](./php7.4-node16/Dockedrfile)
+[php7.4-node18](./php7.4-node18/Dockedrfile)
+[php8.0-node10](./php8.0-node10/Dockedrfile)
+[php8.0-node14](./php8.0-node14/Dockedrfile)
+[php8.0-node16](./php8.0-node16/Dockedrfile)
+[php8.0-node18](./php8.0-node18/Dockedrfile)
+[php8.1-node14](./php8.1-node14/Dockedrfile)
+[php8.1-node16](./php8.1-node16/Dockedrfile)
+[php8.1-node18](./php8.1-node18/Dockedrfile)
+[php8.1-node20](./php8.1-node20/Dockedrfile)
+[php8.1-node22](./php8.1-node22/Dockedrfile)
+[php8.2-node14](./php8.2-node14/Dockedrfile)
+[php8.2-node16](./php8.2-node16/Dockedrfile)
+[php8.2-node18](./php8.2-node18/Dockedrfile)
+[php8.2-node20](./php8.2-node20/Dockedrfile)
+[php8.2-node22](./php8.2-node22/Dockedrfile)
+[php8.3-node14](./php8.3-node14/Dockedrfile)
+[php8.3-node16](./php8.3-node16/Dockedrfile)
+[php8.3-node18](./php8.3-node18/Dockedrfile)
+[php8.3-node20](./php8.3-node20/Dockedrfile)
+[php8.3-node22](./php8.3-node22/Dockedrfile)
 
 ## Building
 

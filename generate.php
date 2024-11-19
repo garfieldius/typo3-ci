@@ -105,6 +105,10 @@ $baseDir = realpath(__DIR__) . DIRECTORY_SEPARATOR;
 $oldWorkflow = file_get_contents($baseDir . '.github/workflows/build.yml');
 $newWorkflow = substr($oldWorkflow, 0, strpos($oldWorkflow, 'combo:') + 7);
 
+$oldReadme = file_get_contents($baseDir . 'README.md');
+$readme = rtrim(substr($oldReadme, 0, strpos($oldReadme, '## Available Tags') + 17)) . "\n\n";
+$readmeEnd = substr($oldReadme, strpos($oldReadme, '## Building'));
+
 exec("rm -rf {$baseDir}php*");
 
 foreach ($images as $image => $versions) {
@@ -119,6 +123,7 @@ foreach ($images as $image => $versions) {
             $tag = 'php' . $php . '-node' . $nodeMajor;
 
             $newWorkflow .= "          - '$tag'\n";
+            $readme .= "[{$tag}](./{$tag}/Dockedrfile)\n";
 
             exec("cp -a {$baseDir}template-{$image} {$baseDir}{$tag}");
             exec("mv {$baseDir}{$tag}/Dockerfile.tmpl {$baseDir}{$tag}/Dockerfile");
@@ -165,3 +170,6 @@ file_put_contents($baseDir . 'Makefile', sprintf($tmplFile, implode(' ', $defaul
 
 $newWorkflow .= "\n" . substr($oldWorkflow, strpos($oldWorkflow, '    steps:'));
 file_put_contents($baseDir . '.github/workflows/build.yml', $newWorkflow);
+
+$newReadme = $readme . "\n" . $readmeEnd;
+file_put_contents($baseDir . 'README.md', $newReadme);
